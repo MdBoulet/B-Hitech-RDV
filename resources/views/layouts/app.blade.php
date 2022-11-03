@@ -11,12 +11,13 @@
 </head>
 <body>
     <div class="container">
-        <img src="{{ asset('images/Coat_of_arms_of_Guinea.png')}}" alt="" style="height: 120px;" class="mt-3">
-        <h2>Les demarches en ligne de l'administration guinéenne</h2>
+        <img src="{{ asset('images/Coat_of_arms_of_Guinea.png')}}" alt="" style="height: 80px;" class="mt-3">
+        <h4>Les demarches en ligne de l'administration guinéenne</h4>
         @yield('content')
     </div>
     
     <br><br>
     @livewireScripts
+    <script src="{{ asset('js/main.js') }}"></script>
 </body>
 </html>

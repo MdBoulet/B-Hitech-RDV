@@ -338,17 +338,167 @@
         </div>
         @endif
 
+        @if ($currentStep == 6)
+            <div>
+                <table class="table">
+                    <thead>
+                        <tr class="yui-dt-first yui-dt-last yui-dt-liner">
+                            <th scope="col" id="horaire" width="16%">Horaire</th>
+                            <th scope="col" id="lundi" width="12%"
+                                style="text-align: center;">Lundi<br />
+                            14/11/2022</th>
+                            <th scope="col" id="mardi" width="12%"
+                                style="text-align: center;">Mardi<br />
+                            15/11/2022</th>
+                            <th scope="col" id="mercredi" width="12%"
+                                style="text-align: center;">Mercredi<br />
+                            16/11/2022</th>
+                            <th scope="col" id="jeudi" width="12%"
+                                style="text-align: center;">Jeudi<br />
+                            17/11/2022</th>
+                            <th scope="col" id="vendredi" width="12%"
+                                style="text-align: center;">Vendredi<br />
+                            18/11/2022</th>
+                            <th scope="col" id="samedi" width="12%"
+                                style="text-align: center;">Samedi<br />
+                            19/11/2022</th>
+                            <th scope="col" id="dimanche" width="12%"
+                                style="text-align: center;">Dimanche<br />
+                            20/11/2022</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+							
+                        <tr class="">
+                            <td headers="horaire"> De 08:30 à 09:00</td>
+
+                            
+                                <td style="text-align: center;"></td>
+                                
+                            
+                                <td style="text-align: center;">
+                                        
+                                        <div class="fr-radio-group">
+                                            <input type="radio" id="creneau1"
+                                                class="btRadio" name="idCreneauRdv"
+                                                value="5606829"
+                                                
+                                                 />
+                                            <label class="fr-label" for="creneau1"></label>
+                                        </div>
+                                    </td>
+                                
+                            
+                                <td style="text-align: center;">
+                                        
+                                        <div class="fr-radio-group">
+                                            <input type="radio" id="creneau2"
+                                                class="btRadio" name="idCreneauRdv"
+                                                value="5606830"
+                                                
+                                                 />
+                                            <label class="fr-label" for="creneau2"></label>
+                                        </div>
+                                    </td>
+                                
+                            
+                                <td style="text-align: center;">
+                                        
+                                        <div class="fr-radio-group">
+                                            <input type="radio" id="creneau3"
+                                                class="btRadio" name="idCreneauRdv"
+                                                value="5606831"
+                                                
+                                                 />
+                                            <label class="fr-label" for="creneau3"></label>
+                                        </div>
+                                    </td>
+                                
+                            
+                                <td style="text-align: center;">
+                                        
+                                        <div class="fr-radio-group">
+                                            <input type="radio" id="creneau4"
+                                                class="btRadio" name="idCreneauRdv"
+                                                value="5606832"
+                                                
+                                                 />
+                                            <label class="fr-label" for="creneau4"></label>
+                                        </div>
+                                    </td>
+                                
+                            
+                                <td style="text-align: center;"></td>
+                                
+                            
+                                <td style="text-align: center;"></td>
+                                
+                            
+                        </tr>
+                    
+                        <tr class="">
+							<td headers="horaire"> De 09:00 à 09:30</td>
+                            <td style="text-align: center;"></td>
+                            <td style="text-align: center;">
+                                <div class="fr-radio-group">
+                                    <input type="radio" id="creneau8"
+                                        class="btRadio" name="idCreneauRdv"
+                                        value="5606836"
+                                        
+                                         />
+                                    <label class="fr-label" for="creneau8"></label>
+                                </div>
+                            </td>	
+							<td style="text-align: center;">
+                                <div class="fr-radio-group">
+                                    <input type="radio" id="creneau9"
+                                        class="btRadio" name="idCreneauRdv"
+                                        value="5606837"
+                                        
+                                         />
+                                    <label class="fr-label" for="creneau9"></label>
+                                </div>
+                            </td>			
+							<td style="text-align: center;">
+                                <div class="fr-radio-group">
+                                    <input type="radio" id="creneau10"
+                                        class="btRadio" name="idCreneauRdv"
+                                        value="5606838"
+                                        
+                                         />
+                                    <label class="fr-label" for="creneau10"></label>
+                                </div>
+                            </td>		
+							
+                            <td style="text-align: center;">
+                                <div class="fr-radio-group">
+                                    <input type="radio" id="creneau11"
+                                        class="btRadio" name="idCreneauRdv"
+                                        value="5606839"
+                                        
+                                         />
+                                    <label class="fr-label" for="creneau11"></label>
+                                </div>
+                            </td>
+							<td style="text-align: center;"></td>
+                            <td style="text-align: center;"></td>
+						</tr>
+                </tbody>
+                </table>
+            </div>
+        @endif
+
         <div class="action-buttons d-flex justify-content-between bg-white pt-2 pb-2">
             @if ($currentStep == 1)
                 <div></div>
             @endif
-            @if ($currentStep == 2 || $currentStep == 3 || $currentStep == 4 || $currentStep == 5)
+            @if ($currentStep == 2 || $currentStep == 3 || $currentStep == 4 || $currentStep == 5 || $currentStep == 6)
                 <button type="button" class="btn btn-md btn-secondary" wire:click="decrement()">Precedent</button>   
             @endif
-            @if ($currentStep == 1 || $currentStep == 2 || $currentStep == 3 || $currentStep == 4)
+            @if ($currentStep == 1 || $currentStep == 2 || $currentStep == 3 || $currentStep == 4 || $currentStep == 5)
                 <button type="button" class="btn btn-md btn-success" wire:click="increment()">Suivant</button>
             @endif
-            @if ($currentStep == 5)
+            @if ($currentStep == 6)
                 <button type="submit" class="btn btn-md btn-primary">Envoyer</button>
             @endif
         </div>

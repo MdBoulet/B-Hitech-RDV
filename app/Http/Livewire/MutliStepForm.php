@@ -49,12 +49,12 @@ class MutliStepForm extends Component
     public $contact_declarant;
     public $domicile_declarant;
 
-    public $totalSteps = 5;
-    public $currentStep = 1;
+    public $totalSteps = 6;
+    public $currentStep = 6;
 
     public function mount()
     {
-        $this->currentStep = 1;
+        $this->currentStep = 6;
     }
 
     public function render()
@@ -82,49 +82,49 @@ class MutliStepForm extends Component
 
     public function validateData()
     {
-        if($this->currentStep == 1) {
-            $this->validate([
-                'commune' => 'required',
-                'annee' => 'required',
-                'jugement' => 'required',
-                'num_acte' => 'required',
-                'feuillet' => 'required',
-            ]);
-        }
-        elseif($this->currentStep == 2) {
-            $this->validate([
-                'prenom' => 'required',
-                'nom' => 'required',
-                'date_naissance' => 'required',
-                'heure_naissance' => 'required',
-                'lieu_naissance' => 'required',
-                'quartier' => 'required',
-                'secteur' => 'required',
-                'rang_naissance' => 'required'
-            ]);
-        }
-        elseif($this->currentStep == 3) {
-            $this->validate([
-                'prenom_pere' => 'required',
-                'nom_pere' => 'required',
-                'date_naissance_pere' => 'required',
-                'lieu_naissance_pere' => 'required',
-                'profession_pere' => 'required',
-                'contact_pere' => 'required',
-                'domicile_pere' => 'required'
-            ]);
-        }
-        elseif($this->currentStep == 4) {
-            $this->validate([
-                'prenom_mere' => 'required',
-                'nom_mere' => 'required',
-                'date_naissance_mere' => 'required',
-                'lieu_naissance_mere' => 'required',
-                'profession_mere' => 'required',
-                'contact_mere' => 'required',
-                'domicile_mere' => 'required'
-            ]);
-        }
+        // if($this->currentStep == 1) {
+        //     $this->validate([
+        //         'commune' => 'required',
+        //         'annee' => 'required',
+        //         'jugement' => 'required',
+        //         'num_acte' => 'required',
+        //         'feuillet' => 'required',
+        //     ]);
+        // }
+        // elseif($this->currentStep == 2) {
+        //     $this->validate([
+        //         'prenom' => 'required',
+        //         'nom' => 'required',
+        //         'date_naissance' => 'required',
+        //         'heure_naissance' => 'required',
+        //         'lieu_naissance' => 'required',
+        //         'quartier' => 'required',
+        //         'secteur' => 'required',
+        //         'rang_naissance' => 'required'
+        //     ]);
+        // }
+        // elseif($this->currentStep == 3) {
+        //     $this->validate([
+        //         'prenom_pere' => 'required',
+        //         'nom_pere' => 'required',
+        //         'date_naissance_pere' => 'required',
+        //         'lieu_naissance_pere' => 'required',
+        //         'profession_pere' => 'required',
+        //         'contact_pere' => 'required',
+        //         'domicile_pere' => 'required'
+        //     ]);
+        // }
+        // elseif($this->currentStep == 4) {
+        //     $this->validate([
+        //         'prenom_mere' => 'required',
+        //         'nom_mere' => 'required',
+        //         'date_naissance_mere' => 'required',
+        //         'lieu_naissance_mere' => 'required',
+        //         'profession_mere' => 'required',
+        //         'contact_mere' => 'required',
+        //         'domicile_mere' => 'required'
+        //     ]);
+        // }
     }
 
     public function register()
