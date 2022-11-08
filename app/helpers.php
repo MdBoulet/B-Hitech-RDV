@@ -5,7 +5,7 @@ use App\Models\ScheduleDay;
 use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Str;
 
-function getBusyDates($communeId): array
+/*function getBusyDates($communeId): array
 {
     $appointmentsMinutes = 30;
     $days = ScheduleDay::all()->map(function ($item) use ($appointmentsMinutes) {
@@ -23,7 +23,7 @@ function getBusyDates($communeId): array
         if (isset($days[$item->day]) && $item->count >= $days[$item->day])
             return $item;
     })->pluck('date')->toArray();
-}
+}*/
 
 function getWeekdays(): array
 {

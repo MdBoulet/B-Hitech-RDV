@@ -12,7 +12,7 @@ class MutliStepForm extends Component
 {
     public array $availableDateTimes = [];
     public $communes;
-    public $commune_id;
+    public $commune_id = 1;
 
     public $annee;
     public $jugement;

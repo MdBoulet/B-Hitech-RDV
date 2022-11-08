@@ -2,7 +2,7 @@
     <form wire:submit.prevent="register">
 
         {{-- Step one --}}
-        @if ($currentStep == 5)
+        @if ($currentStep == 1)
             <div class="step-one" style="margin-top: 40px;">
                 <div class="card">
                     <div class="card-header bg-secondary text-white">ETAPE 1/4 - ELEMENTS DE LA DEMANDE</div>
@@ -263,7 +263,7 @@
         @endif
 
         {{-- Step 5 --}}
-        @if ($currentStep == 1)
+        @if ($currentStep == 5)
             <div class="step-one" style="margin-top: 40px;">
                 <div class="row">
                     <div class="col-md-12">
