@@ -15,7 +15,6 @@ class CreateCartesTable extends Migration
     {
         Schema::create('cartes', function (Blueprint $table) {
             $table->id();
-            $table->string('commmune');
             $table->string('commissariat');
             $table->string('type_demande');
             $table->string('priorite');
@@ -38,6 +37,8 @@ class CreateCartesTable extends Migration
             $table->string('nom_pere');
             $table->string('prenom_mere');
             $table->string('nom_mere');
+            $table->unsignedInteger('commune_id');
+            $table->foreign('commune_id')->references('id')->on('communes');
             $table->timestamps();
         });
     }

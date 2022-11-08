@@ -15,7 +15,6 @@ class CreateActesTable extends Migration
     {
         Schema::create('actes', function (Blueprint $table) {
             $table->id();
-            $table->string('commune');
             $table->string('annee');
             $table->string('jugement');
             $table->string('num_acte');
@@ -23,12 +22,12 @@ class CreateActesTable extends Migration
             $table->string('prenom');
             $table->string('nom');
             $table->date('date_naissance');
-            $table->string('heure_naissance');
+            $table->time('heure_naissance');
             $table->string('lieu_naissance');
             $table->string('quartier');
             $table->string('secteur');
             $table->string('sexe');
-            $table->integer('rang_naissance');
+            $table->string('rang_naissance');
             $table->string('prenom_pere');
             $table->string('nom_pere');
             $table->date('date_naissance_pere');
@@ -50,6 +49,8 @@ class CreateActesTable extends Migration
             $table->string('lien_parente');
             $table->string('contact_declarant');
             $table->string('domicile_declarant');
+            $table->unsignedInteger('commune_id');
+            $table->foreign('commune_id')->references('id')->on('communes');
             $table->timestamps();
         });
     }

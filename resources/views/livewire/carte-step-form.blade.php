@@ -1,56 +1,69 @@
 <div>
     <form wire:submit.prevent="register">
+
         {{-- Step one --}}
-        @if ($currentStep == 1)
-        <div class="step-one" style="margin-top: 40px;">
-            <div class="card">
-                <div class="card-header bg-secondary text-white">ETAPE 1/4 - ELEMENTS DE LA DEMANDE</div>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label for="type_demande">Type de Demande</label>
-                                <select id="type_demande" class="form-control" wire:model="type_demande">
-                                    <option value="">........</option>
-                                    <option value="premiere_demande">Premiere Demande</option>
-                                    <option value="renouvellement">Renouvellement</option>
-                                    <option value="duplicata">Duplicata</option>
-                                </select>
-                                @error('type_demande') <span class="error" style="color: red;">{{ $message }}</span> @enderror
+        @if ($currentStep == 5)
+            <div class="step-one" style="margin-top: 40px;">
+                <div class="card">
+                    <div class="card-header bg-secondary text-white">ETAPE 1/4 - ELEMENTS DE LA DEMANDE</div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="commune">Commune</label>
+                                    <select name="commune_id" id="commune" class="form-control" wire:model="commune_id">
+                                        <option value=""></option>
+                                        @foreach($communes as $id => $name)
+                                            <option value="{{ $id }}">{{ $name }}</option>
+                                        @endforeach
+                                    </select>
+                                    @error('commune_id') <span class="error" style="color: red;">{{ $message }}</span> @enderror
+                                </div>
                             </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="type_demande">Type de Demande</label>
+                                    <select id="type_demande" class="form-control" wire:model="type_demande">
+                                        <option value="">........</option>
+                                        <option value="premiere_demande">Premiere Demande</option>
+                                        <option value="renouvellement">Renouvellement</option>
+                                        <option value="duplicata">Duplicata</option>
+                                    </select>
+                                    @error('type_demande') <span class="error" style="color: red;">{{ $message }}</span> @enderror
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <label>Priorité</label>
+                               <div class="form-group">
+                                   <fieldset>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label for="">Ordinaire</label>
+                                                <input type="radio" name="priorite" id="priorite" value="ordinaire" wire:model="priorite">
+                                             </div>
+                                             <div class="col-md-6">
+                                                 <label for="">VIP</label>
+                                                 <input type="radio" name="priorite" id="priorite" value="vip" wire:model="priorite">
+                                             </div>
+                                        </div>
+                                   </fieldset>
+                                   @error('priorite') <span class="error" style="color: red;">{{ $message }}</span> @enderror
+                                </div>
+                           </div>
                         </div>
-                        <div class="col-md-12">
-							<label>Priorité</label>
-                           <div class="form-group">
-                               <fieldset>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <label for="">Ordinaire</label>
-                                            <input type="radio" name="priorite" id="priorite" value="ordinaire" wire:model="priorite">
-                                         </div>
-                                         <div class="col-md-6">
-                                             <label for="">VIP</label>
-                                             <input type="radio" name="priorite" id="priorite" value="vip" wire:model="priorite">
-                                         </div>
-                                    </div>
-                               </fieldset>
-                               @error('priorite') <span class="error" style="color: red;">{{ $message }}</span> @enderror
-                            </div>
-                       </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label for="">Date de Paiement</label>
-                                <input type="date" class="form-control" wire:model="date_paiement">
-                                @error('date_paiement') <span class="error" style="color: red;">{{ $message }}</span> @enderror
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="">Date de Paiement</label>
+                                    <input type="date" class="form-control" wire:model="date_paiement">
+                                    @error('date_paiement') <span class="error" style="color: red;">{{ $message }}</span> @enderror
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        @endif
+            @endif
 
         {{-- Step 2 --}}
         @if ($currentStep == 2)
@@ -249,17 +262,39 @@
         </div>
         @endif
 
+        {{-- Step 5 --}}
+        @if ($currentStep == 1)
+            <div class="step-one" style="margin-top: 40px;">
+                <div class="row">
+                    <div class="col-md-12">
+                        @include('livewire.calendar')
+                        <!--
+                        <div class="form-group">
+                            <label for="">Date du rendez-vous</label>
+                            <input
+                                x-data
+                                x-init="flatpickr($refs.input, {{json_encode((object)$options)}});"
+                                x-ref="input"
+                                type="text" class="form-control" placeholder="Date du rendez-vous" wire:model="appointment_date">
+                            @error('appointment_date') <span class="error" style="color: red;">{{ $message }}</span> @enderror
+                        </div>
+                        -->
+                    </div>
+                </div>
+            </div>
+        @endif
+
         <div class="action-buttons d-flex justify-content-between bg-white pt-2 pb-2">
             @if ($currentStep == 1)
                 <div></div>
             @endif
-            @if ($currentStep == 2 || $currentStep == 3 || $currentStep == 4)
-                <button type="button" class="btn btn-md btn-secondary" wire:click="decrement()">Precedent</button>   
+            @if ($currentStep == 2 || $currentStep == 3 || $currentStep == 4 || $currentStep == 5)
+                <button type="button" class="btn btn-md btn-secondary" wire:click="decrement()">Precedent</button>
             @endif
-            @if ($currentStep == 1 || $currentStep == 2 || $currentStep == 3)
+            @if ($currentStep == 1 || $currentStep == 2 || $currentStep == 3 || $currentStep == 4)
                 <button type="button" class="btn btn-md btn-success" wire:click="increment()">Suivant</button>
             @endif
-            @if ($currentStep == 4)
+            @if ($currentStep == 5)
                 <button type="submit" class="btn btn-md btn-primary">Envoyer</button>
             @endif
         </div>

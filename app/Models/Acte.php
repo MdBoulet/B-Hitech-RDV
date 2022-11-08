@@ -1,13 +1,15 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\MorphOne;
 
 class Acte extends Model
 {
     protected $fillable = [
-        'commune',
+        'commune_id',
         'annee',
         'jugement',
         'num_acte',
@@ -43,4 +45,14 @@ class Acte extends Model
         'contact_declarant',
         'domicile_declarant'
     ];
+
+    public function commune(): BelongsTo
+    {
+        return $this->belongsTo(Commune::class);
+    }
+
+    public function appointment(): MorphOne
+    {
+        return $this->morphOne(Appointment::class, 'owner' );
+    }
 }

@@ -31,7 +31,3 @@ Route::get('/admin/acte', 'AdminController@acte')->name('acteDeNaissance')->midd
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
-Route::get('/appointment', function() {
-    return view('appointment.index');
-});

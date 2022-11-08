@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Acte;
-use App\Carte;
-use Illuminate\Http\Request;
+use App\Models\Acte;
+use App\Models\Carte;
 
 class AdminController extends Controller
 {
